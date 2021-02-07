@@ -26,6 +26,12 @@ app.use((err: ExpressJoiError,
   }
   return next();
 });
+// handle 404 errors
+app.use((_req: Request, res: Response) => {
+  const response: ErrorJsonResponse = { error: 'Not Found' };
+  res.status(404).json(response);
+});
+
 if (!process.env.PORT) console.warn('NO PORT IN ENV FOUND USING DEFAULT');
 const port = process.env.PORT ? process.env.PORT : 3000;
 app.listen(port, () => {
