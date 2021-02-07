@@ -5,6 +5,7 @@ To start server run:
 ```
 npm install
 npm run build
+cp .env.example .env
 npm start
 ```
 
