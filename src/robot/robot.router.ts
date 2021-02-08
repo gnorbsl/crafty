@@ -13,6 +13,11 @@ const validator = createValidator({
   passError: true,
 });
 
+/**
+ * get direction from heading and target
+ * @Query heading number heading of the robot
+ * @Query target number degree of the target
+ */
 robotRouter.get('/direction',
   validator.query(getDirectionSchema),
   (req: ValidatedRequest<GetDirectionInterface>, res: Response) => {
